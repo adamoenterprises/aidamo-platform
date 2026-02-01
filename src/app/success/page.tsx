@@ -1,0 +1,22 @@
+import Link from 'next/link'
+
+export default function SuccessPage() {
+  return (
+    <main className="min-h-screen bg-white flex items-center justify-center px-6">
+      <div className="max-w-md text-center">
+        <h1 className="text-2xl font-light tracking-tight mb-4">
+          Welcome
+        </h1>
+        <p className="text-neutral-600 mb-8">
+          Your subscription is now active.
+        </p>
+        <Link
+          href="/access"
+          className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
+        >
+          Enter
+        </Link>
+      </div>
+    </main>
+  )
+}
