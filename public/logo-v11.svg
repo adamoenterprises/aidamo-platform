@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="0" fill="#000000"/>
+
+  <!-- Simple triangle - The Commercialiser style -->
+  <polygon
+    points="256,80 420,420 92,420"
+    fill="none"
+    stroke="white"
+    stroke-width="24"
+    stroke-linejoin="miter"
+  />
+</svg>

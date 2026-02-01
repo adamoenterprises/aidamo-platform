@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="0" fill="#0a0a0a"/>
+
+  <!-- Industrial A - sharp edges, no curves -->
+  <polygon
+    points="256,70 380,420 330,420 256,200 182,420 132,420"
+    fill="white"
+  />
+
+  <!-- Horizontal cut through - industrial bar -->
+  <rect x="175" y="300" width="162" height="40" fill="#0a0a0a"/>
+</svg>

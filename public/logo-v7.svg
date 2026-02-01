@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background - pure black -->
+  <rect width="512" height="512" rx="0" fill="#000000"/>
+
+  <!-- Futuristic A - split/glitched industrial -->
+  <!-- Left half -->
+  <polygon
+    points="256,60 256,200 180,380 100,380"
+    fill="white"
+  />
+
+  <!-- Right half - slight offset for tech feel -->
+  <polygon
+    points="260,70 260,200 336,380 416,380"
+    fill="white"
+  />
+
+  <!-- Crossbar - floating -->
+  <rect x="140" y="280" width="236" height="24" fill="white"/>
+</svg>

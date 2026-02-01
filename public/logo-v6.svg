@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background - pure black, square -->
+  <rect width="512" height="512" rx="0" fill="#000000"/>
+
+  <!-- Tesla-style A - bold, solid, geometric -->
+  <!-- Outer shape -->
+  <path
+    d="M256 60 L420 440 L350 440 L310 340 L202 340 L162 440 L92 440 Z"
+    fill="white"
+  />
+
+  <!-- Inner cutout - creates the A hole -->
+  <path
+    d="M256 160 L300 280 L212 280 Z"
+    fill="#000000"
+  />
+</svg>
