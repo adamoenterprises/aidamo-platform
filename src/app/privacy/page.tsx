@@ -16,37 +16,66 @@ export default function PrivacyPage() {
           <h1 className="text-2xl font-light tracking-tight mb-8">Privacy Policy</h1>
 
           <div className="prose prose-neutral prose-sm">
-            <p className="text-neutral-600 leading-relaxed mb-6">
-              Last updated: January 2025
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              Last updated: February 2026
             </p>
 
-            <h2 className="text-lg font-medium mt-8 mb-4">Information We Collect</h2>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              We collect information you provide directly, including your email address
-              when you create an account and payment information when you subscribe.
+            <h2 className="text-lg font-medium mt-8 mb-4">1. Information We Collect</h2>
+            <p className="text-neutral-600 leading-relaxed mb-2">
+              We collect limited information necessary to provide access to the service, including:
+            </p>
+            <ul className="text-neutral-600 leading-relaxed mb-4 list-disc list-inside space-y-1">
+              <li>Email address</li>
+              <li>Account and usage metadata</li>
+              <li>Conversation content submitted by users</li>
+            </ul>
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              We do not require personal profile data beyond what is needed for authentication and service operation.
             </p>
 
-            <h2 className="text-lg font-medium mt-8 mb-4">How We Use Your Information</h2>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              We use your information to provide and maintain our service, process
-              payments, and communicate with you about your account.
+            <h2 className="text-lg font-medium mt-8 mb-4">2. How We Use Information</h2>
+            <p className="text-neutral-600 leading-relaxed mb-2">
+              Information is used solely to:
+            </p>
+            <ul className="text-neutral-600 leading-relaxed mb-4 list-disc list-inside space-y-1">
+              <li>Provide and operate the service</li>
+              <li>Maintain and improve system performance</li>
+              <li>Communicate with users regarding access and service updates</li>
+            </ul>
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              We do not sell personal data.
             </p>
 
-            <h2 className="text-lg font-medium mt-8 mb-4">Data Security</h2>
+            <h2 className="text-lg font-medium mt-8 mb-4">3. Conversation Data</h2>
             <p className="text-neutral-600 leading-relaxed mb-4">
-              We implement appropriate security measures to protect your personal
-              information. Payment processing is handled by Stripe.
+              User interactions may be processed and stored by third-party infrastructure and AI service providers in order to deliver the service.
+            </p>
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              Users should not submit confidential, regulated, or highly sensitive information.
             </p>
 
-            <h2 className="text-lg font-medium mt-8 mb-4">Third-Party Services</h2>
+            <h2 className="text-lg font-medium mt-8 mb-4">4. Data Security</h2>
             <p className="text-neutral-600 leading-relaxed mb-4">
-              We use third-party services including Stripe for payments and Supabase
-              for authentication and data storage.
+              We apply reasonable administrative and technical safeguards appropriate to an early-stage system.
+            </p>
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              No system can be guaranteed to be completely secure.
             </p>
 
-            <h2 className="text-lg font-medium mt-8 mb-4">Contact</h2>
+            <h2 className="text-lg font-medium mt-8 mb-4">5. Third-Party Services</h2>
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              AIDAMO relies on third-party providers for hosting, authentication, analytics, and AI processing. These providers operate under their own privacy and security policies.
+            </p>
+
+            <h2 className="text-lg font-medium mt-8 mb-4">6. Enterprise & Professional Use</h2>
+            <p className="text-neutral-600 leading-relaxed mb-8">
+              Nothing in this policy is intended to restrict professional, enterprise, pilot, or internal evaluation use, provided such use complies with applicable internal policies and regulations.
+            </p>
+
+            <h2 className="text-lg font-medium mt-8 mb-4">7. Contact</h2>
             <p className="text-neutral-600 leading-relaxed mb-4">
-              For privacy-related inquiries, please contact us at privacy@aidamo.ai.
+              Privacy inquiries may be directed to:<br />
+              <a href="mailto:privacy@aidamo.ai" className="text-neutral-900 hover:underline">privacy@aidamo.ai</a>
             </p>
           </div>
         </div>

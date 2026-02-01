@@ -2,18 +2,17 @@
 
 ## Project Overview
 
-**Aidamo Platform** — A paid subscription service providing access to "Alex Aidamo," an AI-based negotiation support tool powered by Delphi.
+**Aidamo Platform** — Landing page and access portal for AIDAMO, Alex Adamo's Negotiation Intelligence powered by Delphi.
 
 - **Domain**: aidamo.ai
-- **Pricing**: $35/month subscription
+- **Pricing**: Freemium (handled by Delphi)
 - **Target users**: Executives, operators, dealmakers
 
 ## Tech Stack
 
 - Next.js 14 (App Router) + TypeScript
 - Tailwind CSS
-- Supabase (Auth + Database)
-- Stripe (Checkout + Billing Portal + Webhooks)
+- Delphi AI embed
 
 ## Project Structure
 
@@ -21,75 +20,51 @@
 src/
 ├── app/
 │   ├── page.tsx              # Landing page
-│   ├── access/page.tsx       # Paywalled Delphi embed (subscribers only)
-│   ├── account/page.tsx      # Account management
-│   ├── success/page.tsx      # Post-checkout confirmation
-│   ├── cancel/page.tsx       # Checkout cancelled
+│   ├── access/page.tsx       # Delphi embed (direct access)
 │   ├── privacy/page.tsx      # Privacy policy
 │   ├── terms/page.tsx        # Terms of service
-│   └── api/
-│       ├── auth/callback/    # Supabase auth callback
-│       └── stripe/
-│           ├── create-checkout/  # Creates Stripe checkout session
-│           ├── create-portal/    # Creates Stripe billing portal session
-│           └── webhook/          # Handles Stripe webhook events
-├── components/
-│   ├── auth-modal.tsx        # Magic link sign-in modal
-│   ├── checkout-button.tsx   # Initiates checkout flow
-│   ├── manage-billing-button.tsx
-│   └── sign-out-button.tsx
-├── lib/
-│   ├── stripe.ts             # Stripe client (lazy initialized)
-│   └── supabase/
-│       ├── client.ts         # Browser client
-│       ├── server.ts         # Server client (cookies)
-│       └── admin.ts          # Service role client
-└── middleware.ts             # Auth protection for /access, /account
+│   └── layout.tsx            # Root layout
+└── globals.css               # Tailwind styles
 ```
 
-## Key Files
+## Key Routes
 
-- `supabase-schema.sql` — Database schema (run in Supabase SQL Editor)
-- `.env.example` — Required environment variables
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page with hero, features, CTA |
+| `/access` | Delphi embed (Alex Adamo AI) |
+| `/privacy` | Privacy policy |
+| `/terms` | Terms of service |
 
 ## Brand Guidelines
 
 - **Aesthetic**: Sleek, minimalist, calm, executive
 - **Colors**: Black, white, neutral greys only
 - **Tone**: No hype language, no emojis
-- **Delphi branding**: Must NOT appear on public pages; only visible inside the embed on /access
+- **Delphi branding**: Only visible inside the embed on /access
 
 ## Important Constraints
 
 1. **Do NOT touch**: `/aidamo-ai` or `/ncortex` folders — those are separate projects
-2. **Paywall**: `/access` is gated server-side; inactive users redirect to `/`
-3. **No custom chat UI**: The /access page contains ONLY the Delphi embed, no sidebars or extra features
-4. **Stripe lazy init**: `getStripe()` function is used to avoid build-time errors
+2. **No paywall**: Direct access to /access page; Delphi handles usage limits
+3. **No custom chat UI**: The /access page contains ONLY the Delphi embed
 
-## Subscription Flow
+## Delphi Integration
 
-1. User clicks "Access for $35/month" → auth modal if not signed in
-2. Magic link email sent → user clicks link → redirected to Stripe Checkout
-3. After payment → Stripe webhook updates `subscription_status` in Supabase
-4. User can now access /access page
+The Delphi embed is loaded via their JavaScript SDK:
 
-## Stripe Webhook Events
-
-- `checkout.session.completed` — Initial subscription created
-- `customer.subscription.created` — Subscription active
-- `customer.subscription.updated` — Status changes
-- `customer.subscription.deleted` — Subscription cancelled
-
-## Database Schema (Supabase)
-
-```sql
-profiles (
-  id uuid PRIMARY KEY,        -- matches auth.users.id
-  email text,
-  stripe_customer_id text,
-  stripe_subscription_id text,
-  subscription_status text    -- 'active' | 'inactive'
-)
+```tsx
+<Script id="delphi-page-script" strategy="afterInteractive">
+  {`
+    window.delphi = {...(window.delphi ?? {}) };
+    window.delphi.page = {
+      config: "b2562f71-9f94-4057-8e8f-c16f4b28e8cc",
+      overrides: { landingPage: "OVERVIEW" },
+      container: { width: "100%", height: "800px" },
+    };
+  `}
+</Script>
+<Script src="https://embed.delphi.ai/loader.js" strategy="afterInteractive" />
 ```
 
 ## Commands
@@ -101,11 +76,12 @@ npm run start    # Start production server
 npm run lint     # Run ESLint
 ```
 
-## Local Stripe Testing
+## Deployment
+
+Deploy to Vercel:
 
 ```bash
-stripe login
-stripe listen --forward-to localhost:3000/api/stripe/webhook
+vercel
 ```
 
-Copy the webhook signing secret to `STRIPE_WEBHOOK_SECRET` in `.env.local`.
+Or connect your GitHub repo to Vercel for automatic deployments.
