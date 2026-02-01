@@ -37,7 +37,7 @@ export default function Home() {
       </section>
 
       {/* What this is */}
-      <section className="py-20 px-6 border-t border-neutral-100">
+      <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">What this is</h2>
           <p className="text-neutral-600 leading-relaxed">
@@ -49,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* What it's not */}
-      <section className="py-20 px-6 border-t border-neutral-100">
+      <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">What it&apos;s not</h2>
           <p className="text-neutral-600 leading-relaxed">
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* Use cases */}
-      <section className="py-20 px-6 border-t border-neutral-100">
+      <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">Use cases</h2>
           <p className="text-neutral-600 leading-relaxed">
@@ -73,7 +73,7 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="py-20 px-6 border-t border-neutral-100">
+      <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">How it works</h2>
           <p className="text-neutral-600 leading-relaxed">
@@ -84,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* Who is Alex Adamo */}
-      <section className="py-20 px-6 border-t border-neutral-100">
+      <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">Who is Alex Adamo</h2>
           <p className="text-neutral-600 leading-relaxed mb-4">
@@ -94,7 +94,7 @@ export default function Home() {
             economics to help CEOs and their teams maximise high-stakes deals.
           </p>
           <p className="text-neutral-600 leading-relaxed">
-            AIDAMO encodes this methodology into an AI system that thinks the way Alex does —
+            AIDAMO encodes this methodology into an AI system that thinks the way Alex does:
             asking the right questions, identifying leverage points, and stress-testing
             strategies before you walk into the room.
           </p>
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 border-t border-neutral-100">
+      <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <a
             href="/access"
