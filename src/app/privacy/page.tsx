@@ -6,7 +6,7 @@ export default function PrivacyPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4">
           <Link href="/" className="text-sm font-medium tracking-tight">
-            Aidamo
+            AIDAMO
           </Link>
         </div>
       </header>
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-lg font-medium mt-8 mb-4">5. Third-Party Services</h2>
             <p className="text-neutral-600 leading-relaxed mb-8">
-              Aidamo relies on third-party providers for hosting, authentication, analytics, and AI processing. These providers operate under their own privacy and security policies.
+              AIDAMO relies on third-party providers for hosting, authentication, analytics, and AI processing. These providers operate under their own privacy and security policies.
             </p>
 
             <h2 className="text-lg font-medium mt-8 mb-4">6. Enterprise & Professional Use</h2>

@@ -7,7 +7,7 @@ export default function App() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-sm font-medium tracking-tight">
-            Aidamo
+            AIDAMO
           </Link>
           <a
             href="/access"
@@ -23,7 +23,7 @@ export default function App() {
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-light tracking-tight mb-4">App</h1>
           <p className="text-neutral-600 leading-relaxed mb-12">
-            Access Aidamo instantly from your home screen.
+            Access AIDAMO instantly from your home screen.
           </p>
 
           <div className="space-y-8">
@@ -79,7 +79,7 @@ export default function App() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-neutral-100">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-sm text-neutral-500">© 2026 Aidamo</span>
+          <span className="text-sm text-neutral-500">© 2026 AIDAMO</span>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
               Privacy

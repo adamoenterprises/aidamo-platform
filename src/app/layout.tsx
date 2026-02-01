@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'Aidamo | Negotiation Intelligence',
+  title: 'AIDAMO | Negotiation Intelligence',
   description: 'Negotiation support and preparation, encoded from Alex Adamo\'s methodology.',
   manifest: '/manifest.json',
   icons: {
@@ -13,21 +13,21 @@ export const metadata: Metadata = {
     apple: '/icon-192.png',
   },
   openGraph: {
-    title: 'Aidamo | Negotiation Intelligence',
+    title: 'AIDAMO | Negotiation Intelligence',
     description: 'Negotiation support and preparation, encoded from Alex Adamo\'s methodology.',
     images: ['/icon-512.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Aidamo | Negotiation Intelligence',
+    title: 'AIDAMO | Negotiation Intelligence',
     description: 'Negotiation support and preparation, encoded from Alex Adamo\'s methodology.',
     images: ['/icon-512.png'],
   },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Aidamo',
+    title: 'AIDAMO',
   },
 }
 
