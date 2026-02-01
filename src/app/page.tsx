@@ -31,7 +31,7 @@ export default function Home() {
             href="/access"
             className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
           >
-            Try Now for Free
+            Access
           </a>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">Who is Alex Adamo</h2>
           <p className="text-neutral-600 leading-relaxed mb-4">
-            Alex Adamo is the founder of The Commercialiser®, a C-Level negotiation advisory
+            Alex Adamo is the Chief Negotiator at The Commercialiser®, a C-Level negotiation advisory
             firm managing a $6.5 billion deal portfolio. A trained behavioural anthropologist,
             his science-driven methodology draws from neuroscience, game theory, and behavioural
             economics to help CEOs and their teams maximise high-stakes deals.
@@ -108,8 +108,66 @@ export default function Home() {
             href="/access"
             className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
           >
-            Try Now for Free
+            Access
           </a>
+        </div>
+      </section>
+
+      {/* Install as App */}
+      <section className="py-20 px-6 bg-neutral-50">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-lg font-medium mb-6 text-center">Install as an App</h2>
+          <p className="text-neutral-600 leading-relaxed text-center mb-8">
+            Access AIDAMO instantly from your home screen, just like a native app.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* iPhone */}
+            <div className="bg-white p-6 rounded-lg border border-neutral-200">
+              <h3 className="font-medium mb-4">iPhone / iPad</h3>
+              <ol className="text-sm text-neutral-600 space-y-3">
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">1.</span>
+                  <span>Open <strong>aidamo.ai</strong> in Safari</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">2.</span>
+                  <span>Tap the <strong>Share</strong> button (square with arrow)</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">3.</span>
+                  <span>Scroll down and tap <strong>Add to Home Screen</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">4.</span>
+                  <span>Tap <strong>Add</strong> in the top right</span>
+                </li>
+              </ol>
+            </div>
+
+            {/* Android */}
+            <div className="bg-white p-6 rounded-lg border border-neutral-200">
+              <h3 className="font-medium mb-4">Android</h3>
+              <ol className="text-sm text-neutral-600 space-y-3">
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">1.</span>
+                  <span>Open <strong>aidamo.ai</strong> in Chrome</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">2.</span>
+                  <span>Tap the <strong>menu</strong> (three dots)</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">3.</span>
+                  <span>Tap <strong>Add to Home screen</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-medium text-neutral-900">4.</span>
+                  <span>Tap <strong>Add</strong> to confirm</span>
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
       </section>
 
