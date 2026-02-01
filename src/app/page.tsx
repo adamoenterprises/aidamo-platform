@@ -7,7 +7,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+            Aidamo
           </Link>
           <a
             href="/access"
@@ -22,7 +22,7 @@ export default function Home() {
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-6">
-            AIDAMO
+            Aidamo
           </h1>
           <p className="text-lg text-neutral-600 mb-12">
             Access Alex Adamo&apos;s Negotiation Intelligence
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">Use cases</h2>
           <p className="text-neutral-600 leading-relaxed">
-            You can use AIDAMO to role-play important meetings, prepare negotiations,
+            You can use Aidamo to role-play important meetings, prepare negotiations,
             debrief difficult conversations, and regain clarity under pressure. It will
             not offer solutions without context and will challenge incomplete thinking,
             because its guidance is only as good as the information you provide.
@@ -94,7 +94,7 @@ export default function Home() {
             economics to help CEOs and their teams maximise high-stakes deals.
           </p>
           <p className="text-neutral-600 leading-relaxed">
-            AIDAMO encodes this methodology into an AI system that thinks the way Alex does:
+            Aidamo encodes this methodology into an AI system that thinks the way Alex does:
             asking the right questions, identifying leverage points, and stress-testing
             strategies before you walk into the room.
           </p>

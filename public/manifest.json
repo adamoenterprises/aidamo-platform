@@ -1,6 +1,6 @@
 {
-  "name": "AIDAMO",
-  "short_name": "AIDAMO",
+  "name": "Aidamo",
+  "short_name": "Aidamo",
   "description": "Alex Adamo's Negotiation Intelligence",
   "start_url": "/access",
   "display": "standalone",

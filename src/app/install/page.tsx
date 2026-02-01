@@ -7,7 +7,7 @@ export default function App() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+            Aidamo
           </Link>
           <a
             href="/access"
@@ -23,7 +23,7 @@ export default function App() {
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-light tracking-tight mb-4">App</h1>
           <p className="text-neutral-600 leading-relaxed mb-12">
-            Access AIDAMO instantly from your home screen.
+            Access Aidamo instantly from your home screen.
           </p>
 
           <div className="space-y-8">
