@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default async function AccessPage() {
   // If Supabase is not configured, redirect (middleware should handle this, but be safe)
@@ -53,37 +54,34 @@ export default async function AccessPage() {
       </header>
 
       {/* Content */}
-      <div className="pt-24 pb-12 px-6">
+      <div className="pt-20 pb-8 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-light tracking-tight mb-8 text-center">
-            Alex Aidamo
-          </h1>
-
           {/* Delphi Embed Container */}
-          <div className="w-full min-h-[600px] border border-neutral-200 rounded-lg bg-neutral-50">
-            {/*
-              ============================================
-              PASTE DELPHI EMBED CODE HERE
-              ============================================
-
-              Replace this placeholder with your Delphi embed code.
-              The embed should fill this container.
-
-              Example:
-              <iframe
-                src="https://www.delphi.ai/embed/your-clone-id"
-                width="100%"
-                height="600"
-                frameBorder="0"
-              />
-              ============================================
-            */}
-            <div id="delphi-embed" className="w-full h-full min-h-[600px] flex items-center justify-center">
-              <p className="text-neutral-400 text-sm">Delphi embed will appear here</p>
-            </div>
-          </div>
+          <div id="delphi-container" className="w-full min-h-[800px]" />
         </div>
       </div>
+
+      {/* Delphi Scripts */}
+      <Script id="delphi-page-script" strategy="afterInteractive">
+        {`
+          window.delphi = {...(window.delphi ?? {}) };
+          window.delphi.page = {
+            config: "b2562f71-9f94-4057-8e8f-c16f4b28e8cc",
+            overrides: {
+              landingPage: "OVERVIEW",
+            },
+            container: {
+              width: "100%",
+              height: "800px",
+            },
+          };
+        `}
+      </Script>
+      <Script
+        id="delphi-page-bootstrap"
+        src="https://embed.delphi.ai/loader.js"
+        strategy="afterInteractive"
+      />
     </main>
   )
 }
