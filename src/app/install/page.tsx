@@ -23,7 +23,7 @@ export default function App() {
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-light tracking-tight mb-4">App</h1>
           <p className="text-neutral-600 leading-relaxed mb-12">
-            Access AIDAMO instantly from your home screen, just like a native app.
+            Access AIDAMO instantly from your home screen.
           </p>
 
           <div className="space-y-8">
