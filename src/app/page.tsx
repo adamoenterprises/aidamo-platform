@@ -113,64 +113,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Install as App */}
-      <section className="py-20 px-6 bg-neutral-50">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-lg font-medium mb-6 text-center">Install as an App</h2>
-          <p className="text-neutral-600 leading-relaxed text-center mb-8">
-            Access AIDAMO instantly from your home screen, just like a native app.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* iPhone */}
-            <div className="bg-white p-6 rounded-lg border border-neutral-200">
-              <h3 className="font-medium mb-4">iPhone / iPad</h3>
-              <ol className="text-sm text-neutral-600 space-y-3">
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">1.</span>
-                  <span>Open <strong>aidamo.ai</strong> in Safari</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">2.</span>
-                  <span>Tap the <strong>Share</strong> button (square with arrow)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">3.</span>
-                  <span>Scroll down and tap <strong>Add to Home Screen</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">4.</span>
-                  <span>Tap <strong>Add</strong> in the top right</span>
-                </li>
-              </ol>
-            </div>
-
-            {/* Android */}
-            <div className="bg-white p-6 rounded-lg border border-neutral-200">
-              <h3 className="font-medium mb-4">Android</h3>
-              <ol className="text-sm text-neutral-600 space-y-3">
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">1.</span>
-                  <span>Open <strong>aidamo.ai</strong> in Chrome</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">2.</span>
-                  <span>Tap the <strong>menu</strong> (three dots)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">3.</span>
-                  <span>Tap <strong>Add to Home screen</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-medium text-neutral-900">4.</span>
-                  <span>Tap <strong>Add</strong> to confirm</span>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-neutral-100">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -181,6 +123,9 @@ export default function Home() {
             </Link>
             <Link href="/terms" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
               Terms
+            </Link>
+            <Link href="/install" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
+              App
             </Link>
           </div>
         </div>
