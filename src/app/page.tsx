@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   alternates: {
@@ -7,9 +8,39 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AIDAMO',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: 'https://aidamo.ai',
+  description: 'AI-powered negotiation decision support for enterprise teams.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  creator: {
+    '@type': 'Person',
+    name: 'Alex Adamo',
+    jobTitle: 'Chief Negotiator',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'The Commercialiser',
+    },
+  },
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <main className="min-h-screen">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -138,5 +169,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </>
   )
 }
