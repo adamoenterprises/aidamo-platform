@@ -5,23 +5,45 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'AIDAMO | Negotiation Intelligence',
-  description: 'Negotiation support and preparation, encoded from Alex Adamo\'s methodology.',
+  metadataBase: new URL('https://aidamo.ai'),
+  title: 'AIDAMO | AI Negotiation Decision Support',
+  description: 'AI-powered negotiation decision support for enterprise teams.',
   manifest: '/manifest.json',
   icons: {
     icon: '/icon-192.png',
     apple: '/icon-192.png',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'AIDAMO | Negotiation Intelligence',
-    description: 'Negotiation support and preparation, encoded from Alex Adamo\'s methodology.',
-    images: ['/icon-512.png'],
+    title: 'AIDAMO | AI Negotiation Decision Support',
+    description: 'AI-powered negotiation decision support for enterprise teams.',
+    url: 'https://aidamo.ai',
+    siteName: 'AIDAMO',
+    images: [
+      {
+        url: '/icon-512.png',
+        width: 512,
+        height: 512,
+        alt: 'AIDAMO',
+      },
+    ],
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
-    title: 'AIDAMO | Negotiation Intelligence',
-    description: 'Negotiation support and preparation, encoded from Alex Adamo\'s methodology.',
+    card: 'summary_large_image',
+    title: 'AIDAMO | AI Negotiation Decision Support',
+    description: 'AI-powered negotiation decision support for enterprise teams.',
     images: ['/icon-512.png'],
   },
   appleWebApp: {

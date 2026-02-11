@@ -1,4 +1,13 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | AIDAMO',
+  description: 'AIDAMO terms of service - usage terms and conditions.',
+  alternates: {
+    canonical: '/terms',
+  },
+}
 
 export default function TermsPage() {
   return (

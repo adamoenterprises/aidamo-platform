@@ -1,4 +1,13 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Install App | AIDAMO',
+  description: 'Install AIDAMO on your phone - access from your home screen.',
+  alternates: {
+    canonical: '/install',
+  },
+}
 
 export default function App() {
   return (

@@ -1,4 +1,13 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | AIDAMO',
+  description: 'AIDAMO privacy policy - how we collect and use your information.',
+  alternates: {
+    canonical: '/privacy',
+  },
+}
 
 export default function PrivacyPage() {
   return (
