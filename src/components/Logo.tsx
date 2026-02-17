@@ -3,13 +3,6 @@ interface LogoProps {
   className?: string
 }
 
-const sizes = {
-  sm: { height: '0.75em', stroke: 38, gap: '0.05em' },
-  md: { height: '0.75em', stroke: 36, gap: '0.05em' },
-  lg: { height: '0.72em', stroke: 32, gap: '0.02em' },
-  xl: { height: '0.72em', stroke: 30, gap: '0.02em' },
-}
-
 const textSizes = {
   sm: 'text-sm',
   md: 'text-xl',
@@ -18,25 +11,24 @@ const textSizes = {
 }
 
 export default function Logo({ size = 'sm', className = '' }: LogoProps) {
-  const { height, stroke, gap } = sizes[size]
-
   return (
-    <span className={`inline-flex items-end font-light tracking-tight ${textSizes[size]} ${className}`}>
+    <span className={`inline-flex items-baseline font-light tracking-tight ${textSizes[size]} ${className}`}>
       <svg
-        viewBox="0 0 100 87"
+        viewBox="0 0 60 70"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={{
-          height,
+          height: '0.68em',
           width: 'auto',
-          marginRight: gap,
+          position: 'relative',
+          top: '0.02em',
         }}
       >
         <polygon
-          points="50,4 96,83 4,83"
+          points="30,2 58,68 2,68"
           fill="none"
           stroke="currentColor"
-          strokeWidth={stroke / 5}
+          strokeWidth="4"
           strokeLinejoin="miter"
         />
       </svg>
