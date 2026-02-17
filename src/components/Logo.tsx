@@ -4,38 +4,43 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { svg: 12, text: 'text-sm', stroke: 40 },
-  md: { svg: 18, text: 'text-xl', stroke: 36 },
-  lg: { svg: 44, text: 'text-5xl', stroke: 32 },
-  xl: { svg: 52, text: 'text-6xl', stroke: 30 },
+  sm: { height: '0.75em', stroke: 38, gap: '0.05em' },
+  md: { height: '0.75em', stroke: 36, gap: '0.05em' },
+  lg: { height: '0.72em', stroke: 32, gap: '0.02em' },
+  xl: { height: '0.72em', stroke: 30, gap: '0.02em' },
+}
+
+const textSizes = {
+  sm: 'text-sm',
+  md: 'text-xl',
+  lg: 'text-5xl',
+  xl: 'text-6xl',
 }
 
 export default function Logo({ size = 'sm', className = '' }: LogoProps) {
-  const { svg, text, stroke } = sizes[size]
+  const { height, stroke, gap } = sizes[size]
 
   return (
-    <span className={`inline-flex items-baseline font-light tracking-tight ${className}`}>
+    <span className={`inline-flex items-end font-light tracking-tight ${textSizes[size]} ${className}`}>
       <svg
-        width={svg}
-        height={svg}
-        viewBox="0 0 512 512"
+        viewBox="0 0 100 87"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="inline-block"
         style={{
-          verticalAlign: 'baseline',
-          marginBottom: size === 'sm' ? '-1px' : size === 'md' ? '-2px' : '-4px',
+          height,
+          width: 'auto',
+          marginRight: gap,
         }}
       >
         <polygon
-          points="256,40 480,472 32,472"
+          points="50,4 96,83 4,83"
           fill="none"
           stroke="currentColor"
-          strokeWidth={stroke}
+          strokeWidth={stroke / 5}
           strokeLinejoin="miter"
         />
       </svg>
-      <span className={text}>IDAMO</span>
+      <span>IDAMO</span>
     </span>
   )
 }
