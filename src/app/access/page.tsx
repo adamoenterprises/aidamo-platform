@@ -1,5 +1,6 @@
 import Script from 'next/script'
 import { Metadata } from 'next'
+import Logo from '@/components/Logo'
 
 export const metadata: Metadata = {
   title: 'Access | AIDAMO',
@@ -15,8 +16,8 @@ export default function AccessPage() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+          <a href="/" className="font-medium tracking-tight">
+            <Logo size="sm" />
           </a>
         </div>
       </header>
