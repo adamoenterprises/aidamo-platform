@@ -4,14 +4,14 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { svg: 14, text: 'text-sm' },
-  md: { svg: 20, text: 'text-xl' },
-  lg: { svg: 48, text: 'text-5xl' },
-  xl: { svg: 56, text: 'text-6xl' },
+  sm: { svg: 12, text: 'text-sm', stroke: 40 },
+  md: { svg: 18, text: 'text-xl', stroke: 36 },
+  lg: { svg: 44, text: 'text-5xl', stroke: 32 },
+  xl: { svg: 52, text: 'text-6xl', stroke: 30 },
 }
 
 export default function Logo({ size = 'sm', className = '' }: LogoProps) {
-  const { svg, text } = sizes[size]
+  const { svg, text, stroke } = sizes[size]
 
   return (
     <span className={`inline-flex items-baseline font-light tracking-tight ${className}`}>
@@ -25,15 +25,13 @@ export default function Logo({ size = 'sm', className = '' }: LogoProps) {
         style={{
           verticalAlign: 'baseline',
           marginBottom: size === 'sm' ? '-1px' : size === 'md' ? '-2px' : '-4px',
-          marginRight: size === 'sm' ? '1px' : '2px'
         }}
       >
-        <rect width="512" height="512" rx="0" fill="currentColor" />
         <polygon
-          points="256,80 420,420 92,420"
+          points="256,40 480,472 32,472"
           fill="none"
-          stroke="white"
-          strokeWidth="24"
+          stroke="currentColor"
+          strokeWidth={stroke}
           strokeLinejoin="miter"
         />
       </svg>
