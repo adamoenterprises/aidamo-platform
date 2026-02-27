@@ -69,7 +69,7 @@ export default function Home() {
             href="/access"
             className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
           >
-            Try Now for Free
+            Access
           </a>
         </div>
       </section>
@@ -146,7 +146,7 @@ export default function Home() {
             href="/access"
             className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
           >
-            Try Now for Free
+            Access
           </a>
         </div>
       </section>
