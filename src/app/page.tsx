@@ -46,7 +46,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/">
-            <img src="/logo-dark.png" alt="AIDAMO" className="h-6" />
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-10" />
           </Link>
           <a
             href="/access"
@@ -61,10 +61,10 @@ export default function Home() {
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="mb-6">
-            <img src="/logo-dark.png" alt="AIDAMO" className="h-16 md:h-20 mx-auto" />
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-24 md:h-32 mx-auto" />
           </h1>
           <p className="text-lg text-neutral-500 mb-12">
-            AI-powered Enterprise Negotiation Intelligence
+            Enterprise Negotiation Intelligence
           </p>
           <div className="flex items-center justify-center gap-4">
             <a
