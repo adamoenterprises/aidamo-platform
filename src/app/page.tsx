@@ -60,8 +60,8 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="mb-6">
-            <img src="/logo-dark.png" alt="AIDAMO" className="h-40 md:h-52 mx-auto" />
+          <h1 className="mb-3">
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-16 md:h-24 mx-auto" />
           </h1>
           <p className="text-lg text-neutral-500 mb-12">
             Enterprise Negotiation Intelligence
