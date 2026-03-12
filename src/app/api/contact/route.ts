@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email via Resend
-    await resend.emails.send({
+    const { data, error: resendError } = await resend.emails.send({
       from: 'AIDAMO <onboarding@resend.dev>',
       to: 'aidamo@thecommercialiser.com',
       subject: `New Enterprise Enquiry from ${name} at ${company}`,
@@ -41,6 +41,15 @@ export async function POST(request: NextRequest) {
       replyTo: email,
     })
 
+    if (resendError) {
+      console.error('Resend error:', JSON.stringify(resendError))
+      return NextResponse.json(
+        { error: `Email failed: ${resendError.message}` },
+        { status: 500 }
+      )
+    }
+
+    console.log('Email sent successfully:', JSON.stringify(data))
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Contact form error:', error)
