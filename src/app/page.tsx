@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import Script from 'next/script'
+import HeroAnimation from './components/HeroAnimation'
 
 export const metadata: Metadata = {
   alternates: {
@@ -44,8 +45,8 @@ export default function Home() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+          <Link href="/">
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-6" />
           </Link>
           <a
             href="/access"
@@ -58,19 +59,28 @@ export default function Home() {
 
       {/* Hero */}
       <section className="pt-40 pb-20 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-6">
-            AIDAMO
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="mb-6">
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-16 md:h-20 mx-auto" />
           </h1>
-          <p className="text-lg text-neutral-600 mb-12">
-            Access Alex Adamo&apos;s Negotiation Intelligence
+          <p className="text-lg text-neutral-500 mb-12">
+            AI-powered Enterprise Negotiation Intelligence
           </p>
-          <a
-            href="/access"
-            className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
-          >
-            Access
-          </a>
+          <div className="flex items-center justify-center gap-4">
+            <a
+              href="/access"
+              className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
+            >
+              Access
+            </a>
+            <a
+              href="/contact"
+              className="inline-block px-8 py-3 border border-neutral-300 text-neutral-900 text-sm font-medium rounded hover:border-neutral-900 transition-colors"
+            >
+              Contact Sales
+            </a>
+          </div>
+          <HeroAnimation />
         </div>
       </section>
 
@@ -141,12 +151,18 @@ export default function Home() {
 
       {/* CTA */}
       <section className="py-20 px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center flex items-center justify-center gap-4">
           <a
             href="/access"
             className="inline-block px-8 py-3 bg-neutral-900 text-white text-sm font-medium rounded hover:bg-neutral-800 transition-colors"
           >
             Access
+          </a>
+          <a
+            href="/contact"
+            className="inline-block px-8 py-3 border border-neutral-300 text-neutral-900 text-sm font-medium rounded hover:border-neutral-900 transition-colors"
+          >
+            Contact Sales
           </a>
         </div>
       </section>

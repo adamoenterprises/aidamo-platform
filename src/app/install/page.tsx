@@ -15,8 +15,8 @@ export default function App() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+          <Link href="/">
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-6" />
           </Link>
           <a
             href="/access"

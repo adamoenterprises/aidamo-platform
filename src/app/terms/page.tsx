@@ -14,8 +14,8 @@ export default function TermsPage() {
     <main className="min-h-screen bg-white">
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4">
-          <Link href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+          <Link href="/">
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-6" />
           </Link>
         </div>
       </header>

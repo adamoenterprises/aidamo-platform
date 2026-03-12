@@ -46,8 +46,8 @@ export default function AccessPage() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-sm font-medium tracking-tight">
-            AIDAMO
+          <a href="/">
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-6" />
           </a>
         </div>
       </header>
