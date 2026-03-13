@@ -258,41 +258,6 @@ const posts: BlogPost[] = [
 <p>The middle market loses negotiations it should win not because it lacks the power to win them. It loses them because it does not know the power it has.</p>
 `,
   },
-  {
-    slug: 'the-negotiation-thermometer-how-temperature-determines-your-next-move',
-    title: 'The Negotiation Thermometer\u2122: How Temperature Determines Your Next Move',
-    date: '2026-03-05',
-    excerpt: 'Every negotiation has a temperature. The negotiators who can read it accurately and respond with calibrated precision consistently outperform those who apply the same approach regardless.',
-    keywords: ['negotiation thermometer', 'negotiation framework', 'negotiation temperature', 'negotiation tactics', 'negotiation methodology'],
-    content: `
-<p>Every negotiation has a temperature.</p>
-<p>It is not a metaphor. It is a measurable, predictable state that determines what behaviour from you will produce the outcome you want. The negotiators who understand this — who can read the temperature of a negotiation accurately and respond to it with calibrated precision — consistently outperform those who apply the same approach regardless of context.</p>
-<p>The Negotiation Thermometer\u2122 is the framework that maps this.</p>
-
-<h2>What Temperature Means</h2>
-<p>Temperature in a negotiation describes the combined state of pressure, urgency, and power balance between the parties at any given moment.</p>
-<p>A <strong>cold negotiation</strong> — below 10\u00b0C on the Thermometer — is one in which neither party feels significant urgency. The counterparty has alternatives. The deadline is distant. The stakes, while real, are not acute. In this state, aggressive tactics backfire. Pressure that is disproportionate to the temperature creates resistance rather than movement.</p>
-<p>A <strong>warm negotiation</strong> — between 15\u00b0C and 25\u00b0C — is one in which time pressure is real, alternatives are narrowing, and both parties are genuinely engaged. This is the zone in which most of the strategic work happens. Position signalling, concession management, tactical escalation. The negotiator who misreads a warm negotiation as cold leaves value on the table. The one who misreads it as hot creates unnecessary conflict.</p>
-<p>A <strong>hot negotiation</strong> — above 25\u00b0C — is one at a critical juncture. Deadlines are real. Alternatives have been exhausted or nearly so. One or both parties is under genuine pressure to close. This is where the most value is won or lost, and where emotional regulation becomes the primary performance variable.</p>
-
-<h2>Reading the Temperature Accurately</h2>
-<p>Temperature is not fixed. It changes with each meeting, each communication, each external event that affects either party's alternatives.</p>
-<p>The most common error in negotiation is operating with a temperature reading that is one level off. The negotiator who applies warm-negotiation tactics in a cold negotiation signals desperation they do not need to signal. The one who holds cold-negotiation patience in a hot negotiation loses the moment when maximum pressure would have produced maximum outcome.</p>
-<p>Accurate temperature reading requires monitoring a set of indicators: the counterparty's communication frequency and urgency, the language they use about their own constraints, their responsiveness to deadlines, the personnel they bring to meetings, and the specificity with which they engage on variables.</p>
-<p>A counterparty who was previously vague about their requirements and is now suddenly precise is warming. One who was previously engaged and is now difficult to reach is either cooling — or is applying a pressure tactic designed to make you read the temperature as colder than it is.</p>
-
-<h2>Calibrating Your Response</h2>
-<p>Each temperature range demands a different operational posture.</p>
-<p><strong>Cold:</strong> Build the relationship and information infrastructure. Ask more questions than you answer. Do not reveal your position constraints. Invest in understanding their decision-making process.</p>
-<p><strong>Warm:</strong> Begin structured position management. Introduce your anchor. Make calibrated concessions — each one conditional, each one small relative to the concession you are seeking in return. Start building the tactical pressure that will matter when the temperature rises.</p>
-<p><strong>Hot:</strong> Regulate your own nervous system first. The negotiator who maintains composure when the counterparty is under maximum pressure controls the room. Do not confuse your urgency with their urgency. Hold position longer than feels comfortable. Move only when movement produces a specific, defined return.</p>
-
-<h2>Why Temperature Changes Everything</h2>
-<p>The same tactic — silence, a conditional offer, a deadline, a threat to walk — produces radically different results at 8\u00b0C and at 28\u00b0C.</p>
-<p>This is why negotiation training that teaches tactics without teaching temperature produces negotiators who are occasionally brilliant and frequently disastrous. The move was right. The moment was wrong.</p>
-<p>The Negotiation Thermometer\u2122 is the discipline of always knowing the moment.</p>
-`,
-  },
 ]
 
 export function getAllPosts(): BlogPost[] {
