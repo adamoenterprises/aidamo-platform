@@ -1,9 +1,32 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function AccessPage() {
+  const wakeLockRef = useRef<WakeLockSentinel | null>(null)
+
   useEffect(() => {
+    // Keep screen awake during voice calls
+    async function requestWakeLock() {
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLockRef.current = await navigator.wakeLock.request('screen')
+        }
+      } catch {
+        // Wake lock request failed (e.g. low battery)
+      }
+    }
+
+    requestWakeLock()
+
+    // Re-acquire wake lock when page becomes visible again
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        requestWakeLock()
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
     // Configure Delphi
     ;(window as any).delphi = { ...(window as any).delphi }
     ;(window as any).delphi.page = {
@@ -22,7 +45,6 @@ export default function AccessPage() {
       script.src = 'https://embed.delphi.ai/loader.js'
       script.async = true
 
-      // Insert near the delphi-page-script tag so the loader can find it
       const configScript = document.getElementById('delphi-page-script')
       if (configScript?.parentNode) {
         configScript.parentNode.insertBefore(script, configScript.nextSibling)
@@ -32,7 +54,8 @@ export default function AccessPage() {
     }
 
     return () => {
-      // Cleanup on unmount
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+      wakeLockRef.current?.release()
       const bootstrap = document.getElementById('delphi-page-bootstrap')
       if (bootstrap) bootstrap.remove()
     }
