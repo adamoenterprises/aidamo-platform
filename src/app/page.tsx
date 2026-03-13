@@ -66,6 +66,9 @@ export default function Home() {
           <Link href="/">
             <img src="/logo-dark.png" alt="AIDAMO" className="h-6" width="121" height="24" />
           </Link>
+          <Link href="/blog" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+            Blog
+          </Link>
           <a
             href="/access"
             className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
