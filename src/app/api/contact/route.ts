@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const { data, error: resendError } = await resend.emails.send({
       from: 'AIDAMO <onboarding@resend.dev>',
-      to: 'aidamo@thecommercialiser.com',
+      to: 'alex@thecommercialiser.com',
       subject: `New Enterprise Enquiry from ${name} at ${company}`,
       text: `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nCompany: ${company}`,
       replyTo: email,
