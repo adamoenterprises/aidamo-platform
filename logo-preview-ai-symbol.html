@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logo Preview</title>
+  <style>
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      gap: 60px;
+      background: #fff;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: baseline;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+    .logo-sm { font-size: 14px; }
+    .logo-lg { font-size: 48px; }
+    .logo-xl { font-size: 60px; }
+    .logo svg {
+      height: 0.72em;
+      width: auto;
+    }
+    .logo span {
+      margin-left: 0.05em;
+    }
+    .label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+    .section {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="label">Header size (sm)</div>
+    <div class="logo logo-sm">
+      <svg viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="26,2 52,68 2,68" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+        <line x1="54" y1="4" x2="54" y2="70" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span>DAMO</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Hero size (lg)</div>
+    <div class="logo logo-lg">
+      <svg viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="26,2 52,68 2,68" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+        <line x1="54" y1="4" x2="54" y2="70" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span>DAMO</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Hero size (xl)</div>
+    <div class="logo logo-xl">
+      <svg viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="26,2 52,68 2,68" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+        <line x1="54" y1="4" x2="54" y2="70" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span>DAMO</span>
+    </div>
+  </div>
+</body>
+</html>
