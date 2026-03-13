@@ -66,9 +66,6 @@ export default function Home() {
           <Link href="/">
             <img src="/logo-dark.png" alt="AIDAMO" className="h-6" width="121" height="24" />
           </Link>
-          <Link href="/blog" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-            Blog
-          </Link>
           <a
             href="/access"
             className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
@@ -196,6 +193,9 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-sm text-neutral-500">© 2026 AIDAMO</span>
           <div className="flex items-center gap-6">
+            <Link href="/blog" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
+              Blog
+            </Link>
             <Link href="/privacy" className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
               Privacy
             </Link>
