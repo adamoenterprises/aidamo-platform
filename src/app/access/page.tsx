@@ -14,7 +14,7 @@ export default function AccessPage() {
         },
         container: {
           width: '100%',
-          height: '100%',
+          height: 'calc(100vh - 57px)',
         },
       },
     }
