@@ -1,9 +1,39 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function AccessPage() {
-  const [loaded, setLoaded] = useState(false)
+  useEffect(() => {
+    // Configure Delphi
+    ;(window as any).delphi = {
+      ...(window as any).delphi,
+      page: {
+        config: 'b2562f71-9f94-4057-8e8f-c16f4b28e8cc',
+        overrides: {
+          landingPage: 'OVERVIEW',
+        },
+        container: {
+          width: '100%',
+          height: '100%',
+        },
+      },
+    }
+
+    // Load the Delphi loader script
+    const existing = document.getElementById('delphi-page-bootstrap')
+    if (!existing) {
+      const script = document.createElement('script')
+      script.id = 'delphi-page-bootstrap'
+      script.src = 'https://embed.delphi.ai/loader.js'
+      script.async = true
+      document.body.appendChild(script)
+    }
+
+    return () => {
+      const bootstrap = document.getElementById('delphi-page-bootstrap')
+      if (bootstrap) bootstrap.remove()
+    }
+  }, [])
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
@@ -15,26 +45,8 @@ export default function AccessPage() {
         </div>
       </header>
 
-      <div className="flex-1 relative bg-white">
-        {/* Loading state shown until iframe is ready */}
-        {!loaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
-            <div className="animate-pulse text-neutral-400 text-sm">Loading...</div>
-          </div>
-        )}
-
-        <iframe
-          src="https://delphi.ai/embeddable/config/b2562f71-9f94-4057-8e8f-c16f4b28e8cc"
-          allow="camera *; microphone *"
-          onLoad={() => setLoaded(true)}
-          style={{
-            border: 'none',
-            width: '100%',
-            height: 'calc(100vh - 57px)',
-            opacity: loaded ? 1 : 0,
-            transition: 'opacity 0.3s ease',
-          }}
-        />
+      <div className="flex-1" style={{ height: 'calc(100vh - 57px)' }}>
+        <div id="delphi-page-script" style={{ width: '100%', height: '100%' }} />
       </div>
     </main>
   )
