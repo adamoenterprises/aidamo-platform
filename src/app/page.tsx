@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import HeroAnimation from './components/HeroAnimation'
 
 export const metadata: Metadata = {
   alternates: {
@@ -80,7 +79,7 @@ export default function Home() {
               Contact Sales
             </a>
           </div>
-          <HeroAnimation />
+
         </div>
       </section>
 
