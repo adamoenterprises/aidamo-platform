@@ -9,11 +9,11 @@ export default function AccessPage() {
         </div>
       </header>
 
-      <div className="flex-1">
+      <div className="flex-1 bg-white">
         <iframe
           src="https://delphi.ai/embeddable/config/b2562f71-9f94-4057-8e8f-c16f4b28e8cc"
           allow="camera *; microphone *"
-          style={{ border: 'none', width: '100%', height: 'calc(100vh - 57px)' }}
+          style={{ border: 'none', width: '100%', height: 'calc(100vh - 57px)', background: 'white' }}
         />
       </div>
     </main>
