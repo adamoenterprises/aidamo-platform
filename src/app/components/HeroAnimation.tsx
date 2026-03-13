@@ -62,8 +62,8 @@ export default function HeroAnimation() {
   }, [tick])
 
   return (
-    <div className="mt-16">
-      <div className="inline-flex items-center justify-center min-h-[32px]">
+    <div className="mt-16 h-[32px]">
+      <div className="inline-flex items-center justify-center h-full">
         <span className="text-lg md:text-xl text-neutral-400 font-light tracking-tight">
           {displayedText}
         </span>
