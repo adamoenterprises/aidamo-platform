@@ -61,7 +61,7 @@ export default function Home() {
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="mb-3">
-            <img src="/logo-dark.png" alt="AIDAMO" className="h-16 md:h-24 mx-auto" width="484" height="96" />
+            <img src="/logo-dark.png" alt="AIDAMO" className="h-16 md:h-24 w-auto mx-auto" />
           </h1>
           <p className="text-lg text-neutral-500 mb-12">
             Enterprise Negotiation Intelligence
