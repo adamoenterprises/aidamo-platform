@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aidamo.ai'),
-  title: 'AIDAMO | AI Negotiation Decision Support',
-  description: 'AI-powered negotiation decision support for enterprise teams.',
+  title: 'AIDAMO | Enterprise Negotiation Intelligence',
+  description: 'AI-powered negotiation support for enterprise teams.',
   manifest: '/manifest.json',
   icons: {
     icon: '/icon-192.png',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'AIDAMO | AI Negotiation Decision Support',
-    description: 'AI-powered negotiation decision support for enterprise teams.',
+    title: 'AIDAMO | Enterprise Negotiation Intelligence',
+    description: 'AI-powered negotiation support for enterprise teams.',
     url: 'https://aidamo.ai',
     siteName: 'AIDAMO',
     images: [
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AIDAMO | AI Negotiation Decision Support',
-    description: 'AI-powered negotiation decision support for enterprise teams.',
+    title: 'AIDAMO | Enterprise Negotiation Intelligence',
+    description: 'AI-powered negotiation support for enterprise teams.',
     images: ['/icon-512.png'],
   },
   appleWebApp: {
