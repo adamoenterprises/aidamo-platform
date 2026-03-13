@@ -9,7 +9,7 @@ export default function AccessPage() {
     ;(window as any).delphi.page = {
       config: 'b2562f71-9f94-4057-8e8f-c16f4b28e8cc',
       overrides: {
-        landingPage: 'PROFILE',
+        landingPage: 'OVERVIEW',
       },
       container: {
         width: '100%',
