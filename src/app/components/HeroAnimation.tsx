@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 type Line = {
   text: string
@@ -63,17 +63,15 @@ const colorClasses: Record<string, string> = {
 }
 
 export default function HeroAnimation() {
-  const [convoIndex, setConvoIndex] = useState(0)
-  const [lineIndex, setLineIndex] = useState(0)
-  const [displayedText, setDisplayedText] = useState('')
   const [completedLines, setCompletedLines] = useState<Line[]>([])
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [currentText, setCurrentText] = useState('')
   const [cursorVisible, setCursorVisible] = useState(true)
-  const [isPausing, setIsPausing] = useState(false)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const currentConvo = conversations[convoIndex]
-  const currentLine = currentConvo[lineIndex]
+  const convoRef = useRef(0)
+  const lineRef = useRef(0)
+  const charRef = useRef(0)
+  const phaseRef = useRef<'typing' | 'pauseAfterLine' | 'pauseAfterConvo' | 'clearing'>('typing')
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   // Blinking cursor
   useEffect(() => {
@@ -83,69 +81,67 @@ export default function HeroAnimation() {
     return () => clearInterval(interval)
   }, [])
 
-  const tick = useCallback(() => {
-    if (isPausing) return
-
-    if (isDeleting) {
-      // Clear all lines at once after conversation ends
-      if (completedLines.length > 0 || displayedText.length > 0) {
-        timeoutRef.current = setTimeout(() => {
-          setCompletedLines([])
-          setDisplayedText('')
-          setIsDeleting(false)
-          setLineIndex(0)
-          setConvoIndex((prev) => (prev + 1) % conversations.length)
-        }, 10)
-      }
-      return
-    }
-
-    if (!currentLine) return
-
-    const isSlow = currentLine.slow
-    const typeSpeed = isSlow ? 80 + Math.random() * 40 : 15 + Math.random() * 20
-
-    if (displayedText.length < currentLine.text.length) {
-      // Still typing current line
-      timeoutRef.current = setTimeout(() => {
-        setDisplayedText(currentLine.text.slice(0, displayedText.length + 1))
-      }, typeSpeed)
-    } else {
-      // Finished typing this line
-      const pauseAfter = isSlow ? 1200 : 500
-
-      if (lineIndex < currentConvo.length - 1) {
-        // More lines in this conversation
-        setIsPausing(true)
-        timeoutRef.current = setTimeout(() => {
-          setCompletedLines((prev) => [...prev, currentLine])
-          setDisplayedText('')
-          setLineIndex((prev) => prev + 1)
-          setIsPausing(false)
-        }, pauseAfter)
-      } else {
-        // Last line — pause then clear everything
-        setIsPausing(true)
-        timeoutRef.current = setTimeout(() => {
-          setIsPausing(false)
-          setIsDeleting(true)
-        }, 2000)
-      }
-    }
-  }, [displayedText, currentLine, currentConvo, lineIndex, isDeleting, isPausing, completedLines])
-
   useEffect(() => {
-    tick()
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    function step() {
+      const convo = conversations[convoRef.current]
+      const line = convo[lineRef.current]
+      const phase = phaseRef.current
+
+      if (phase === 'typing') {
+        if (charRef.current < line.text.length) {
+          charRef.current++
+          setCurrentText(line.text.slice(0, charRef.current))
+          const speed = line.slow ? 80 + Math.random() * 40 : 15 + Math.random() * 20
+          timerRef.current = setTimeout(step, speed)
+        } else {
+          // Done typing this line
+          if (lineRef.current < convo.length - 1) {
+            phaseRef.current = 'pauseAfterLine'
+            const pause = line.slow ? 1200 : 500
+            timerRef.current = setTimeout(step, pause)
+          } else {
+            phaseRef.current = 'pauseAfterConvo'
+            timerRef.current = setTimeout(step, 2000)
+          }
+        }
+      } else if (phase === 'pauseAfterLine') {
+        // Move to next line
+        setCompletedLines((prev) => [...prev, line])
+        lineRef.current++
+        charRef.current = 0
+        setCurrentText('')
+        phaseRef.current = 'typing'
+        timerRef.current = setTimeout(step, 100)
+      } else if (phase === 'pauseAfterConvo') {
+        phaseRef.current = 'clearing'
+        timerRef.current = setTimeout(step, 100)
+      } else if (phase === 'clearing') {
+        // Clear everything and move to next conversation
+        setCompletedLines([])
+        setCurrentText('')
+        convoRef.current = (convoRef.current + 1) % conversations.length
+        lineRef.current = 0
+        charRef.current = 0
+        phaseRef.current = 'typing'
+        timerRef.current = setTimeout(step, 400)
+      }
     }
-  }, [tick])
+
+    timerRef.current = setTimeout(step, 300)
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
+
+  const currentConvo = conversations[convoRef.current]
+  const currentLine = currentConvo?.[lineRef.current]
 
   return (
     <div className="mt-16 min-h-[120px] flex flex-col items-center">
       {/* Completed lines */}
       {completedLines.map((line, i) => (
-        <div key={`${convoIndex}-${i}`} className="mb-1">
+        <div key={`line-${i}`} className="mb-1">
           <span
             className={`text-lg md:text-xl font-light tracking-tight ${
               colorClasses[line.color || 'user']
@@ -163,7 +159,7 @@ export default function HeroAnimation() {
             colorClasses[currentLine?.color || 'user']
           }`}
         >
-          {displayedText}
+          {currentText}
         </span>
         <span
           className={`inline-block w-[2px] h-6 bg-neutral-400 ml-[1px] transition-opacity duration-100 ${
