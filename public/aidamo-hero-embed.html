@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.aidamo-hero{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:center;padding:40px 20px;box-sizing:border-box}
+.aidamo-hero__wrap{display:inline-flex;align-items:center;justify-content:center;height:32px}
+.aidamo-hero__text{font-size:1.25rem;font-weight:300;letter-spacing:-0.025em;transition:color .15s}
+.aidamo-hero__cursor{display:inline-block;width:2px;height:24px;background:#a3a3a3;margin-left:1px;transition:opacity .1s}
+.c-user{color:#a3a3a3}
+.c-red{color:#ef4444}
+.c-green{color:#10b981}
+.c-blue{color:#3b82f6}
+.c-purple{color:#a855f7}
+</style>
+</head>
+<body>
+<div class="aidamo-hero" id="aidamo-hero">
+<div class="aidamo-hero__wrap">
+<span class="aidamo-hero__text c-user" id="ah-text"></span><span class="aidamo-hero__cursor" id="ah-cursor"></span>
+</div>
+</div>
+<script>
+(function(){
+var L=[
+["what should I do next?","user"],["push back","red"],
+["they said 'no', what now?","user"],["why did they say 'no'?","green"],["I don't know","user"],["ask them","green"],["I can't","user"],["escalate","red"],
+["I'm feeling stressed, how do I calm down?","user"],["why are you feeling stressed?","green"],["not sure","user"],["let's breathe together, follow my pace","green"],["three","blue",1],["two","purple",1],["one","green",1],
+["this is my counterproposal, what do you think?","user"],["it's weak","red"],["why?","user"],["leaving too much on the table, you must push harder","red"],
+["they said 'no' to my proposal, what now?","user"],["try and understand their reasoning","red"],["and then?","user"],["what's important to them and low cost to you?","green"],["don't know","user"],["let's review your variables and decide a counterproposal","green"],
+["I can't","user"],["why not?","green"],["the counterparty has all the power","user"],["are you sure?","blue"],["yes","user"],["then this is not a negotiation matter","blue"],["are you a negotiator or customer service representative?","red"],["let's review your power balance before giving up","green"]
+];
+var el=document.getElementById("ah-text"),cur=document.getElementById("ah-cursor");
+var i=0,c=0,phase=0,cv=true;
+setInterval(function(){cv=!cv;cur.style.opacity=cv?"1":"0"},530);
+function step(){
+var line=L[i],txt=line[0],col=line[1],slow=line[2];
+if(phase===0){
+if(c===0)el.className="aidamo-hero__text c-"+col;
+if(c<txt.length){c++;el.textContent=txt.slice(0,c);setTimeout(step,slow?80+Math.random()*40:15+Math.random()*20)}
+else{phase=1;setTimeout(step,slow?1200:700)}
+}else if(phase===1){phase=2;setTimeout(step,10)}
+else{
+if(c>0){c--;el.textContent=txt.slice(0,c);setTimeout(step,3)}
+else{i=(i+1)%L.length;phase=0;setTimeout(step,200)}
+}
+}
+setTimeout(step,300);
+})();
+</script>
+</body>
+</html>
