@@ -37,10 +37,12 @@ const conversations: Line[][] = [
     { text: 'leaving too much on the table, you must push harder', color: 'red' },
   ],
   [
-    { text: 'this is their question, what now?', color: 'user' },
-    { text: "say 'no'", color: 'red' },
+    { text: "they said 'no' to my proposal, what now?", color: 'user' },
+    { text: 'try and understand their reasoning', color: 'red' },
     { text: 'and then?', color: 'user' },
-    { text: "wait four days, if they don't give in, make a concession", color: 'red' },
+    { text: "what's important to them and low cost to you?", color: 'green' },
+    { text: "don't know", color: 'user' },
+    { text: "let's review your variables and decide a counterproposal", color: 'green' },
   ],
   [
     { text: "I can't", color: 'user' },
