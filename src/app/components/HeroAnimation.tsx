@@ -64,15 +64,17 @@ const colorClasses: Record<string, string> = {
   purple: 'text-purple-500',
 }
 
+// Flatten all conversations into a single sequence of lines
+const allLines: Line[] = conversations.flat()
+
 export default function HeroAnimation() {
-  const [completedLines, setCompletedLines] = useState<Line[]>([])
   const [currentText, setCurrentText] = useState('')
+  const [currentColor, setCurrentColor] = useState<string>('user')
   const [cursorVisible, setCursorVisible] = useState(true)
 
-  const convoRef = useRef(0)
   const lineRef = useRef(0)
   const charRef = useRef(0)
-  const phaseRef = useRef<'typing' | 'pauseAfterLine' | 'pauseAfterConvo' | 'clearing'>('typing')
+  const phaseRef = useRef<'typing' | 'pause' | 'deleting'>('typing')
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   // Blinking cursor
@@ -85,47 +87,38 @@ export default function HeroAnimation() {
 
   useEffect(() => {
     function step() {
-      const convo = conversations[convoRef.current]
-      const line = convo[lineRef.current]
+      const line = allLines[lineRef.current]
       const phase = phaseRef.current
 
       if (phase === 'typing') {
+        if (charRef.current === 0) {
+          setCurrentColor(line.color || 'user')
+        }
         if (charRef.current < line.text.length) {
           charRef.current++
           setCurrentText(line.text.slice(0, charRef.current))
           const speed = line.slow ? 80 + Math.random() * 40 : 15 + Math.random() * 20
           timerRef.current = setTimeout(step, speed)
         } else {
-          // Done typing this line
-          if (lineRef.current < convo.length - 1) {
-            phaseRef.current = 'pauseAfterLine'
-            const pause = line.slow ? 1200 : 500
-            timerRef.current = setTimeout(step, pause)
-          } else {
-            phaseRef.current = 'pauseAfterConvo'
-            timerRef.current = setTimeout(step, 2000)
-          }
+          // Done typing — pause then delete
+          phaseRef.current = 'pause'
+          const pause = line.slow ? 1200 : 700
+          timerRef.current = setTimeout(step, pause)
         }
-      } else if (phase === 'pauseAfterLine') {
-        // Move to next line
-        setCompletedLines((prev) => [...prev, line])
-        lineRef.current++
-        charRef.current = 0
-        setCurrentText('')
-        phaseRef.current = 'typing'
-        timerRef.current = setTimeout(step, 100)
-      } else if (phase === 'pauseAfterConvo') {
-        phaseRef.current = 'clearing'
-        timerRef.current = setTimeout(step, 100)
-      } else if (phase === 'clearing') {
-        // Clear everything and move to next conversation
-        setCompletedLines([])
-        setCurrentText('')
-        convoRef.current = (convoRef.current + 1) % conversations.length
-        lineRef.current = 0
-        charRef.current = 0
-        phaseRef.current = 'typing'
-        timerRef.current = setTimeout(step, 400)
+      } else if (phase === 'pause') {
+        phaseRef.current = 'deleting'
+        timerRef.current = setTimeout(step, 10)
+      } else if (phase === 'deleting') {
+        if (charRef.current > 0) {
+          charRef.current--
+          setCurrentText(line.text.slice(0, charRef.current))
+          timerRef.current = setTimeout(step, 10)
+        } else {
+          // Done deleting — next line
+          lineRef.current = (lineRef.current + 1) % allLines.length
+          phaseRef.current = 'typing'
+          timerRef.current = setTimeout(step, 200)
+        }
       }
     }
 
@@ -136,29 +129,12 @@ export default function HeroAnimation() {
     }
   }, [])
 
-  const currentConvo = conversations[convoRef.current]
-  const currentLine = currentConvo?.[lineRef.current]
-
   return (
-    <div className="mt-16 min-h-[120px] flex flex-col items-center">
-      {/* Completed lines */}
-      {completedLines.map((line, i) => (
-        <div key={`line-${i}`} className="mb-1">
-          <span
-            className={`text-lg md:text-xl font-light tracking-tight ${
-              colorClasses[line.color || 'user']
-            }`}
-          >
-            {line.text}
-          </span>
-        </div>
-      ))}
-
-      {/* Currently typing line */}
-      <div className="inline-flex items-center justify-center">
+    <div className="mt-16 h-[32px]">
+      <div className="inline-flex items-center justify-center h-full">
         <span
           className={`text-lg md:text-xl font-light tracking-tight ${
-            colorClasses[currentLine?.color || 'user']
+            colorClasses[currentColor]
           }`}
         >
           {currentText}
