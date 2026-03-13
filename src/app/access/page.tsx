@@ -23,7 +23,13 @@ export default function AccessPage() {
       script.id = 'delphi-page-bootstrap'
       script.src = 'https://embed.delphi.ai/loader.js'
       script.async = true
-      document.body.appendChild(script)
+
+      const configScript = document.getElementById('delphi-page-script')
+      if (configScript?.parentNode) {
+        configScript.parentNode.insertBefore(script, configScript.nextSibling)
+      } else {
+        document.body.appendChild(script)
+      }
     }
 
     // Keep screen awake during voice calls
@@ -69,6 +75,12 @@ export default function AccessPage() {
           <div id="delphi-container" className="w-full min-h-[800px]" />
         </div>
       </div>
+
+      {/* Delphi config script — the loader looks for this by ID */}
+      <script
+        id="delphi-page-script"
+        dangerouslySetInnerHTML={{ __html: '' }}
+      />
     </main>
   )
 }
