@@ -69,8 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
             ← Back to blog
           </Link>
 
-          <time className="block text-sm text-neutral-400 mt-8">{post.date}</time>
-          <h1 className="text-2xl font-medium mt-2 mb-8">{post.title}</h1>
+          <h1 className="text-2xl font-medium mt-8 mb-8">{post.title}</h1>
 
           <div
             className="prose prose-neutral max-w-none prose-headings:font-medium prose-p:text-neutral-600 prose-p:leading-relaxed prose-li:text-neutral-600"

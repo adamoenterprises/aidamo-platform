@@ -45,8 +45,7 @@ export default function BlogPage() {
             {posts.map((post) => (
               <article key={post.slug}>
                 <Link href={`/blog/${post.slug}`} className="group block">
-                  <time className="text-sm text-neutral-400">{post.date}</time>
-                  <h2 className="text-lg font-medium mt-1 group-hover:text-neutral-600 transition-colors">
+                  <h2 className="text-lg font-medium group-hover:text-neutral-600 transition-colors">
                     {post.title}
                   </h2>
                   <p className="text-neutral-500 mt-2 leading-relaxed">
