@@ -112,7 +112,7 @@ export default function HeroAnimation() {
         if (charRef.current > 0) {
           charRef.current--
           setCurrentText(line.text.slice(0, charRef.current))
-          timerRef.current = setTimeout(step, 10)
+          timerRef.current = setTimeout(step, 3)
         } else {
           // Done deleting — next line
           lineRef.current = (lineRef.current + 1) % allLines.length
