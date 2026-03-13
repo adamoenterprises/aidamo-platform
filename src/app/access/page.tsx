@@ -44,13 +44,7 @@ export default function AccessPage() {
       script.id = 'delphi-page-bootstrap'
       script.src = 'https://embed.delphi.ai/loader.js'
       script.async = true
-
-      const configScript = document.getElementById('delphi-page-script')
-      if (configScript?.parentNode) {
-        configScript.parentNode.insertBefore(script, configScript.nextSibling)
-      } else {
-        document.body.appendChild(script)
-      }
+      document.body.appendChild(script)
     }
 
     return () => {
