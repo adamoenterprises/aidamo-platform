@@ -71,11 +71,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className="antialiased min-h-screen bg-white text-neutral-900">
-        <script dangerouslySetInnerHTML={{ __html: `
-          window.addEventListener('pageshow', function(e) {
-            if (e.persisted) { window.location.reload(); }
-          });
-        `}} />
         {children}
       </body>
     </html>
