@@ -9,29 +9,47 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'AIDAMO',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
-  url: 'https://aidamo.ai',
-  description: 'AI-powered negotiation decision support for enterprise teams.',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-  creator: {
-    '@type': 'Person',
-    name: 'Alex Adamo',
-    jobTitle: 'Chief Negotiator',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'The Commercialiser',
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'AIDAMO',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    url: 'https://aidamo.ai',
+    description: 'AI-powered enterprise negotiation intelligence platform. Prepare for negotiations, stress-test strategies, and role-play difficult conversations with AI negotiation support.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    creator: {
+      '@type': 'Person',
+      name: 'Alex Adamo',
+      jobTitle: 'Chief Negotiator',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'The Commercialiser',
+      },
     },
   },
-}
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'AIDAMO',
+    url: 'https://aidamo.ai',
+    logo: 'https://aidamo.ai/icon-512.png',
+    description: 'Enterprise negotiation intelligence powered by AI. Built on proven negotiation methodology for high-stakes deal preparation and strategy.',
+    sameAs: [],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'AIDAMO',
+    url: 'https://aidamo.ai',
+    description: 'AI negotiation tool for enterprise teams — prepare, strategise, and role-play high-stakes negotiations.',
+  },
+]
 
 export default function Home() {
   return (
@@ -61,7 +79,8 @@ export default function Home() {
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="mb-3">
-            <img src="/logo-dark.png" alt="AIDAMO" className="h-16 md:h-24 w-auto mx-auto" />
+            <img src="/logo-dark.png" alt="AIDAMO — AI Negotiation Tool for Enterprise Teams" className="h-16 md:h-24 w-auto mx-auto" />
+            <span className="sr-only">AIDAMO — AI-Powered Enterprise Negotiation Intelligence</span>
           </h1>
           <p className="text-lg text-neutral-500 mb-12">
             Enterprise Negotiation Intelligence
@@ -87,11 +106,12 @@ export default function Home() {
       {/* What this is */}
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-lg font-medium mb-4">What this is</h2>
+          <h2 className="text-lg font-medium mb-4">AI Negotiation Support for Enterprise Teams</h2>
           <p className="text-neutral-600 leading-relaxed">
-            AI-based negotiation support and preparation, built on Alex Adamo&apos;s methodology.
+            AIDAMO is an AI negotiation tool built on Alex Adamo&apos;s proven methodology.
             Use it to prepare for negotiations, stress-test your strategy, role-play difficult
-            conversations, or debrief after important meetings.
+            conversations, or debrief after important meetings. Purpose-built negotiation support
+            for enterprise teams managing high-stakes deals.
           </p>
         </div>
       </section>
@@ -110,12 +130,12 @@ export default function Home() {
       {/* Use cases */}
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-lg font-medium mb-4">Use cases</h2>
+          <h2 className="text-lg font-medium mb-4">Negotiation Preparation &amp; Strategy</h2>
           <p className="text-neutral-600 leading-relaxed">
-            You can use AIDAMO to role-play important meetings, prepare negotiations,
-            debrief difficult conversations, and regain clarity under pressure. It will
-            not offer solutions without context and will challenge incomplete thinking,
-            because its guidance is only as good as the information you provide.
+            Use AIDAMO to role-play important meetings, prepare negotiation strategies,
+            debrief difficult conversations, and regain clarity under pressure. This enterprise
+            negotiation tool will not offer solutions without context and will challenge
+            incomplete thinking, because its guidance is only as good as the information you provide.
           </p>
         </div>
       </section>
@@ -125,8 +145,9 @@ export default function Home() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-medium mb-4">How it works</h2>
           <p className="text-neutral-600 leading-relaxed">
-            It asks questions first, then responds. No assumptions. The conversation begins
-            with understanding your context before providing any guidance.
+            Unlike generic AI tools, AIDAMO asks questions first, then responds. No assumptions.
+            The conversation begins with understanding your negotiation context — counterparty,
+            constraints, objectives — before providing any strategic guidance.
           </p>
         </div>
       </section>
